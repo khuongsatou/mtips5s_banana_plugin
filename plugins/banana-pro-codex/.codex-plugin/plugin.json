@@ -1,26 +1,45 @@
 {
   "name": "banana-pro-codex",
-  "version": "0.1.0",
-  "description": "Kết nối Codex với workflow Banana Pro để kiểm tra runtime, tạo/chỉnh sửa ảnh, quản lý media và bàn giao output có QA.",
-  "author": {"name": "MTips5s"},
-  "homepage": "https://bb.1nutnhan.com/",
-  "repository": "https://bb.1nutnhan.com/",
+  "version": "0.1.0+codex.20260908071606",
+  "description": "K\u1ebft n\u1ed1i Codex v\u1edbi workflow Banana Pro \u0111\u1ec3 ki\u1ec3m tra runtime, t\u1ea1o/ch\u1ec9nh s\u1eeda \u1ea3nh, qu\u1ea3n l\u00fd media v\u00e0 b\u00e0n giao output c\u00f3 QA.",
+  "author": {
+    "name": "Sếp Khương"
+  },
+  "homepage": "http://1nutnhan.com/",
+  "repository": "http://1nutnhan.com/",
   "license": "MIT",
-  "keywords": ["banana", "image-generation", "image-editing", "media-workflow", "codex"],
+  "keywords": [
+    "banana",
+    "image-generation",
+    "image-editing",
+    "watermark-removal",
+    "media-workflow",
+    "codex"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Banana Pro Codex",
-    "shortDescription": "Tạo và xử lý media bằng Banana Pro.",
-    "longDescription": "Mở rộng Codex với workflow Banana Pro: kiểm tra kết nối, tạo ảnh từ prompt, chỉnh sửa ảnh tham chiếu, quản lý workflow media và kiểm tra output trước bàn giao.",
-    "developerName": "MTips5s",
+    "shortDescription": "T\u1ea1o v\u00e0 x\u1eed l\u00fd media b\u1eb1ng Banana Pro.",
+    "longDescription": "M\u1edf r\u1ed9ng Codex v\u1edbi workflow Banana Pro: ki\u1ec3m tra k\u1ebft n\u1ed1i, t\u1ea1o \u1ea3nh t\u1eeb prompt, ch\u1ec9nh s\u1eeda \u1ea3nh tham chi\u1ebfu, qu\u1ea3n l\u00fd workflow media v\u00e0 ki\u1ec3m tra output tr\u01b0\u1edbc b\u00e0n giao.",
+    "developerName": "Sếp Khương",
     "category": "Creativity",
-    "capabilities": ["Image generation", "Image editing", "Media workflows", "QA handoff"],
-    "websiteURL": "https://bb.1nutnhan.com/",
+    "capabilities": [
+      "Image generation",
+      "Image editing",
+      "Watermark removal",
+      "Media workflows",
+      "QA handoff"
+    ],
+    "websiteURL": "http://1nutnhan.com/",
     "brandColor": "#F5B700",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/logo.png",
     "logoDark": "./assets/logo-dark.png",
-    "defaultPrompt": ["Kiểm tra Banana Pro và trạng thái FlowKit.", "Tạo ảnh Banana Pro từ prompt này.", "Review và QA output media mới nhất."]
+    "defaultPrompt": [
+      "Ki\u1ec3m tra tr\u1ea1ng th\u00e1i Banana Extension.",
+      "T\u1ea1o \u1ea3nh Banana Pro t\u1eeb prompt n\u00e0y.",
+      "Review v\u00e0 QA output media m\u1edbi nh\u1ea5t."
+    ]
   }
 }

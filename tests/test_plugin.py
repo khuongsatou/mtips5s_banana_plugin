@@ -28,5 +28,29 @@ class PluginContractTest(unittest.TestCase):
             self.assertTrue((skill / "references").is_dir())
             self.assertTrue((skill / "scripts").is_dir())
 
+    def test_watermark_remover_skill_is_registered(self):
+        skill = PLUGIN / "skills/watermark-remover"
+        text = (skill / "SKILL.md").read_text()
+        self.assertIn("banana-pro-watermark-remover", text)
+        self.assertIn("remove_watermark_complete", text)
+        self.assertIn("Image Library", text)
+        self.assertIn("không gọi endpoint private", text)
+
+    def test_menu_routes_watermark_requests(self):
+        text = (PLUGIN / "skills/menu/SKILL.md").read_text()
+        self.assertIn("banana-pro-watermark-remover", text)
+
+    def test_watermark_support_script_is_executable_and_documented(self):
+        script = PLUGIN / "skills/watermark-remover/scripts/watermark_batch.py"
+        self.assertTrue(script.is_file())
+        self.assertTrue(script.stat().st_mode & 0o111)
+        self.assertIn("watermark_batch.py", (script.parent / "README.md").read_text())
+
+    def test_polling_script_is_executable_and_documented(self):
+        script = PLUGIN / "skills/watermark-remover/scripts/poll_jobs.py"
+        self.assertTrue(script.is_file())
+        self.assertTrue(script.stat().st_mode & 0o111)
+        self.assertIn("poll_jobs.py", (script.parent / "README.md").read_text())
+
 if __name__ == "__main__":
     unittest.main()

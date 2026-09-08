@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xóa watermark ảnh"
+  short_description: "Xóa logo bằng MCP LaMa ONNX."
+  default_prompt: "Hãy dùng Watermark Remover để xóa watermark khỏi ảnh và kiểm tra output trước khi lưu."
