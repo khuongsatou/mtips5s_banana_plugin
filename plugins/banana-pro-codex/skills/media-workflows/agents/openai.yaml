@@ -1,0 +1,5 @@
+interface:
+  display_name: "Điều phối workflow media"
+  short_description: "Quản lý bước, asset và job."
+  default_prompt: "Hãy dùng Banana Pro để quản lý bước, asset và job."
+

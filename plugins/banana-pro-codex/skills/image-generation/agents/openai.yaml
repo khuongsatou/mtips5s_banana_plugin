@@ -1,0 +1,5 @@
+interface:
+  display_name: "Tạo ảnh Banana Pro"
+  short_description: "Text-to-image qua BB API."
+  default_prompt: "Hãy dùng Banana Pro để text-to-image qua bb api."
+

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "banana-pro": {
+      "type": "http",
+      "url": "https://bb.1nutnhan.com/mcp",
+      "headers": {"x-api-key": "${BANANA_PRO_MCP_API_KEY}"}
+    }
+  }
+}

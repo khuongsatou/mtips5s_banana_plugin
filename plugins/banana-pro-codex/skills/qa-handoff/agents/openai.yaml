@@ -1,0 +1,5 @@
+interface:
+  display_name: "QA và bàn giao output"
+  short_description: "Xác minh file, metadata và acceptance."
+  default_prompt: "Hãy dùng Banana Pro để xác minh file, metadata và acceptance."
+

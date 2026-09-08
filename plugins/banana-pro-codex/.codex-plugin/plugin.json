@@ -1,0 +1,26 @@
+{
+  "name": "banana-pro-codex",
+  "version": "0.1.0",
+  "description": "Kết nối Codex với workflow Banana Pro để kiểm tra runtime, tạo/chỉnh sửa ảnh, quản lý media và bàn giao output có QA.",
+  "author": {"name": "MTips5s"},
+  "homepage": "https://bb.1nutnhan.com/",
+  "repository": "https://bb.1nutnhan.com/",
+  "license": "MIT",
+  "keywords": ["banana", "image-generation", "image-editing", "media-workflow", "codex"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Banana Pro Codex",
+    "shortDescription": "Tạo và xử lý media bằng Banana Pro.",
+    "longDescription": "Mở rộng Codex với workflow Banana Pro: kiểm tra kết nối, tạo ảnh từ prompt, chỉnh sửa ảnh tham chiếu, quản lý workflow media và kiểm tra output trước bàn giao.",
+    "developerName": "MTips5s",
+    "category": "Creativity",
+    "capabilities": ["Image generation", "Image editing", "Media workflows", "QA handoff"],
+    "websiteURL": "https://bb.1nutnhan.com/",
+    "brandColor": "#F5B700",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png",
+    "defaultPrompt": ["Kiểm tra Banana Pro và trạng thái FlowKit.", "Tạo ảnh Banana Pro từ prompt này.", "Review và QA output media mới nhất."]
+  }
+}

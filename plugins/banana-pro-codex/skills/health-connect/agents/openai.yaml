@@ -1,0 +1,5 @@
+interface:
+  display_name: "Kiểm tra kết nối Banana Pro"
+  short_description: "Chẩn đoán health, extension và FlowKit."
+  default_prompt: "Hãy dùng Banana Pro để chẩn đoán health, extension và flowkit."
+

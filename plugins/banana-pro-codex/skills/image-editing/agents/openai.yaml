@@ -1,0 +1,5 @@
+interface:
+  display_name: "Chỉnh sửa ảnh tham chiếu"
+  short_description: "Upload bytes rồi image-to-image."
+  default_prompt: "Hãy dùng Banana Pro để upload bytes rồi image-to-image."
+
