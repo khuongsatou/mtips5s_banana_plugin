@@ -7,8 +7,10 @@
     {
       "name": "banana-pro-codex",
       "source": {
-        "source": "local",
-        "path": "./plugins/banana-pro-codex"
+        "source": "git-subdir",
+        "url": "https://github.com/khuongsatou/mtips5s_banana_plugin.git",
+        "path": "./plugins/banana-pro-codex",
+        "ref": "main"
       },
       "policy": {
         "installation": "AVAILABLE",
