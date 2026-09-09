@@ -31,4 +31,4 @@ Dev package có thể tạo bằng `--environment dev --port 9123`; MCP và heal
 - `POST /api/images/upload-bytes`: upload bytes từ máy local.
 - MCP `/mcp`: tool gateway nếu backend public đã bật.
 
-Trước compute phải health check, resolve configuration và xin confirmation. Sau compute phải kiểm tra output thật và metadata.
+Trước compute phải health check và resolve configuration. Text-to-image tự submit khi prompt đã đủ, không xin confirmation; các capability còn lại giữ confirmation gate theo skill tương ứng. Sau compute phải kiểm tra output thật và metadata.

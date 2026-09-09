@@ -72,7 +72,7 @@ Metadata công khai chỉ mô tả capability và lợi ích người dùng. Kh�
 
 Tạo một skill `menu` làm bộ định tuyến chính. Menu phải kiểm tra nhẹ runtime hiện có, hiển thị toàn bộ capability, không tự setup/render/thay đổi máy, chờ người dùng chọn rồi chuyển sang skill tương ứng.
 
-Mỗi skill chức năng cần có `SKILL.md`, `agents/openai.yaml`, `assets/runtime/`, `references/` và `scripts/`. `SKILL.md` phải mô tả trigger, setup hiện có, chọn host, các lệnh `use`, `host`, `check`, `models`, `setup`, `status`, `logs`, `down`, `connect`, hardware gate, model audit, giới hạn, staging input, configuration, confirmation, execute, wait, QC, lỗi và bàn giao output.
+Mỗi skill chức năng cần có `SKILL.md`, `agents/openai.yaml`, `assets/runtime/`, `references/` và `scripts/`. `SKILL.md` phải mô tả trigger, setup hiện có, chọn host, các lệnh `use`, `host`, `check`, `models`, `setup`, `status`, `logs`, `down`, `connect`, hardware gate, model audit, giới hạn, staging input, configuration, confirmation khi capability yêu cầu, execute, wait, QC, lỗi và bàn giao output. Text-to-image phải tự submit khi prompt đã đủ, không thêm confirmation gate.
 
 Mỗi `agents/openai.yaml` có dạng:
 
@@ -115,7 +115,7 @@ get_job(job_id)
 list_jobs()
 ```
 
-Nếu Codex không hỗ trợ elicitation, dùng một câu hỏi numbered list, hiển thị cấu hình đã resolve, yêu cầu xác nhận rõ ràng rồi mới truyền `config_confirmed=true`. Không coi “làm luôn”, “render đi” hoặc request ban đầu là confirmation cuối.
+Nếu capability có confirmation gate và Codex không hỗ trợ elicitation, dùng một câu hỏi numbered list, hiển thị cấu hình đã resolve, yêu cầu xác nhận rõ ràng rồi mới truyền `config_confirmed=true`. Riêng text-to-image coi request tạo ảnh ban đầu là quyền submit và không hỏi xác nhận khi prompt đã đủ.
 
 ## 7. Host cache
 
@@ -142,7 +142,7 @@ Remote host phải thử SSH key/agent trước, dùng `BatchMode=yes`, không �
 
 ## 9. Configuration card và confirmation
 
-Trước compute/render, hiển thị:
+Trước compute/render của capability có confirmation gate, hiển thị:
 
 ```text
 Cấu hình đề xuất
@@ -168,7 +168,7 @@ Cấu hình đề xuất
 3. Hủy.
 ```
 
-Nếu người dùng sửa bất kỳ trường nào, hiển thị lại card và yêu cầu xác nhận lại.
+Nếu người dùng sửa bất kỳ trường nào của capability có confirmation gate, hiển thị lại card và yêu cầu xác nhận lại. Mục này không áp dụng cho text-to-image có prompt đầy đủ.
 
 ## 10. Bảo mật và trung thực
 
@@ -180,7 +180,7 @@ Viết `README.md`, `CONNECT.md` và các tài liệu trong `refer/` về kiến
 
 ## 12. Kiểm thử
 
-Tạo test cho manifest, danh sách skill, capability metadata, không lộ hardware/backend, tier ladder, model audit, atomic download, input validation, config token, confirmation gate, job state, output existence, metadata probe, health endpoint, secret logging, port conflict, cleanup khi fail/cancel và retry không đổi cấu hình.
+Tạo test cho manifest, danh sách skill, capability metadata, không lộ hardware/backend, tier ladder, model audit, atomic download, input validation, config token, confirmation gate của các capability cần gate, text-to-image tự submit không confirmation, job state, output existence, metadata probe, health endpoint, secret logging, port conflict, cleanup khi fail/cancel và retry không đổi cấu hình.
 
 Chạy:
 
@@ -214,6 +214,6 @@ Tạo `.agents/plugins/marketplace.json` với plugin local:
 
 ## 14. Tiêu chí nghiệm thu
 
-Chỉ bàn giao khi Codex nhận diện plugin, menu và skill hoạt động, manifest validate, MCP health check hoạt động, local/remote setup an toàn, setup idempotent, model audit hoạt động, confirmation gate không thể bypass, monitor hoạt động, output được probe/QC, tài liệu khớp code, tất cả test pass và Git không chứa secret/model weights/dữ liệu khách hàng.
+Chỉ bàn giao khi Codex nhận diện plugin, menu và skill hoạt động, manifest validate, MCP health check hoạt động, local/remote setup an toàn, setup idempotent, model audit hoạt động, confirmation gate không thể bypass ở capability yêu cầu gate, text-to-image không hỏi xác nhận khi prompt đã đủ, monitor hoạt động, output được probe/QC, tài liệu khớp code, tất cả test pass và Git không chứa secret/model weights/dữ liệu khách hàng.
 
 Cuối cùng báo cáo cấu trúc file, skill đã triển khai, MCP endpoint, lệnh setup/connect, test đã chạy, giới hạn còn lại và thông tin cần người dùng cung cấp.

@@ -16,7 +16,7 @@ Dùng khi người dùng muốn làm việc với Banana Pro. Kiểm tra nhẹ t
 7. Upscale — phóng to/tăng chi tiết ảnh qua MCP/BB API hoặc giao diện Upscale fallback.
 8. QA handoff — kiểm tra file, metadata, lỗi và bàn giao.
 
-Nếu yêu cầu chưa rõ, hỏi người dùng chọn capability. Với tạo/chỉnh sửa, luôn staging input, hiển thị configuration card và xin xác nhận trước khi chạy.
+Nếu yêu cầu chưa rõ capability, hỏi người dùng chọn capability. Với tạo ảnh từ text, chuyển sang `banana-pro-image-generation`; khi prompt đã đủ thì tự chạy bằng cấu hình mặc định, không xin xác nhận. Với chỉnh sửa ảnh, vẫn staging input, hiển thị configuration card và xin xác nhận trước khi chạy.
 
 Với yêu cầu xóa watermark, chuyển sang `banana-pro-watermark-remover`. Ưu tiên MCP trực tiếp, giữ file gốc và chỉ dùng browser UI làm fallback cho mask thủ công.
 

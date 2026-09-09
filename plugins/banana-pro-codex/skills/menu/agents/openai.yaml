@@ -1,5 +1,4 @@
 interface:
   display_name: "Điều hướng Banana Pro"
-  short_description: "Chọn capability và giữ confirmation gate."
-  default_prompt: "Hãy dùng Banana Pro để chọn capability và giữ confirmation gate."
-
+  short_description: "Chọn đúng capability Banana Pro."
+  default_prompt: "Hãy dùng Banana Pro để chọn capability phù hợp; tự chạy tạo ảnh khi prompt đã đủ."

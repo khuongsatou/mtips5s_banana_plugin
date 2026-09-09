@@ -37,7 +37,7 @@ Không đưa token vào package; `BANANA_PRO_MCP_API_KEY` vẫn được Codex/O
 
 Khi cài plugin, Codex tự khám phá OAuth từ MCP server và mở trang đăng nhập Banana Pro. Mỗi lần kết nối tạo một key riêng cho Codex; người dùng có thể thu hồi key đó trong trang **MCP API Keys**.
 
-Không đặt token trực tiếp trong plugin, manifest, prompt hoặc log. Trước generation phải health check và confirmation; sau generation phải QA output.
+Không đặt token trực tiếp trong plugin, manifest, prompt hoặc log. Trước generation phải health check; text-to-image tự chạy khi prompt đã đủ và không hỏi confirmation, còn các capability khác theo gate trong skill tương ứng. Sau generation phải QA output.
 
 ## Workflow Anime → Xóa watermark → Upscale
 

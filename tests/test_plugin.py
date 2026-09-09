@@ -65,6 +65,16 @@ class PluginContractTest(unittest.TestCase):
         text = (PLUGIN / "skills/menu/SKILL.md").read_text()
         self.assertIn("banana-pro-watermark-remover", text)
 
+    def test_text_to_image_runs_without_confirmation_when_prompt_is_complete(self):
+        generation = (PLUGIN / "skills/image-generation/SKILL.md").read_text()
+        menu = (PLUGIN / "skills/menu/SKILL.md").read_text()
+        menu_metadata = (PLUGIN / "skills/menu/agents/openai.yaml").read_text()
+
+        self.assertIn("không hỏi xác nhận", generation.lower())
+        self.assertIn("tự động submit", generation.lower())
+        self.assertIn("tạo ảnh từ text", menu.lower())
+        self.assertNotIn("giữ confirmation gate", menu_metadata.lower())
+
     def test_gemini_logo_and_upscale_skills_are_registered(self):
         gemini = PLUGIN / "skills/gemini-logo-remover/SKILL.md"
         upscale = PLUGIN / "skills/upscale/SKILL.md"
