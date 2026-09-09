@@ -13,6 +13,11 @@ class PluginContractTest(unittest.TestCase):
         self.assertEqual(manifest["mcpServers"], "./.mcp.json")
         self.assertEqual(mcp["mcpServers"]["banana-pro"]["url"], "https://bb.1nutnhan.com/mcp")
 
+    def test_refresh_scripts_are_packaged(self):
+        scripts = PLUGIN / "scripts"
+        self.assertTrue((scripts / "refresh-youtube-workflow-preview.cjs").is_file())
+        self.assertTrue((scripts / "auto-refresh-youtube-workflows.cjs").is_file())
+
     def test_skill_contracts_exist(self):
         skills = [p for p in (PLUGIN / "skills").iterdir() if p.is_dir()]
         self.assertGreaterEqual(len(skills), 5)
@@ -25,4 +30,3 @@ class PluginContractTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
