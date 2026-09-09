@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anime → watermark → upscale"
+  short_description: "Tạo pipeline anime, xóa watermark và upscale."
+  default_prompt: "Hãy chạy workflow anime → xóa watermark → upscale và kiểm tra từng output."

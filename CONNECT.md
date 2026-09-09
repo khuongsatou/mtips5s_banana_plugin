@@ -12,6 +12,19 @@ plugins/banana-pro-codex/scripts/connect.sh
 
 Health chỉ được xem là Ready khi `ok`, `extension_ready` và `flow_key_present` đều là `true`.
 
+## Chọn môi trường
+
+Mặc định là production (`https://bb.1nutnhan.com`). Với backend local, đặt `BANANA_PRO_ENV=dev`; resolver sẽ dùng `http://127.0.0.1:8000` hoặc port trong `BANANA_PRO_DEV_PORT`.
+
+Package release cho Codex Desktop phải được tạo bằng:
+
+```bash
+python3 plugins/banana-pro-codex/scripts/build_plugin.py \
+  --environment production --output dist/production
+```
+
+Dev package có thể tạo bằng `--environment dev --port 9123`; MCP và health sẽ cùng dùng port đó.
+
 ## API capabilities
 
 - `POST /api/images/generate`: text-to-image và image-to-image.
@@ -19,4 +32,3 @@ Health chỉ được xem là Ready khi `ok`, `extension_ready` và `flow_key_pr
 - MCP `/mcp`: tool gateway nếu backend public đã bật.
 
 Trước compute phải health check, resolve configuration và xin confirmation. Sau compute phải kiểm tra output thật và metadata.
-

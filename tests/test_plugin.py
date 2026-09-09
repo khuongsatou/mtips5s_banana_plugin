@@ -10,6 +10,8 @@ class PluginContractTest(unittest.TestCase):
         manifest = json.loads((PLUGIN / ".codex-plugin/plugin.json").read_text())
         mcp = json.loads((PLUGIN / ".mcp.json").read_text())
         self.assertEqual(manifest["name"], "banana-pro-codex")
+        self.assertIn("gemini-logo-removal", manifest["keywords"])
+        self.assertIn("Gemini logo removal", manifest["interface"]["capabilities"])
         self.assertEqual(manifest["mcpServers"], "./.mcp.json")
         self.assertEqual(mcp["mcpServers"]["banana-pro"]["url"], "https://bb.1nutnhan.com/mcp")
 
@@ -36,9 +38,40 @@ class PluginContractTest(unittest.TestCase):
         self.assertIn("Image Library", text)
         self.assertIn("không gọi endpoint private", text)
 
+    def test_root_readme_documents_watermark_remover_url(self):
+        text = (ROOT / "README.md").read_text()
+        self.assertIn("https://bb.1nutnhan.com/watermark-remover/", text)
+
+    def test_root_readme_documents_upscale_url(self):
+        text = (ROOT / "README.md").read_text()
+        self.assertIn("https://bb.1nutnhan.com/upscale", text)
+
+    def test_environment_workflow_is_documented(self):
+        docs = "\n".join(
+            (ROOT / path).read_text()
+            for path in (
+                "README.md",
+                "CONNECT.md",
+                "plugins/banana-pro-codex/README.md",
+                "refer/architecture.md",
+            )
+        )
+        self.assertIn("BANANA_PRO_ENV=dev", docs)
+        self.assertIn("BANANA_PRO_DEV_PORT", docs)
+        self.assertIn("--environment production", docs)
+        self.assertIn("Codex Desktop", docs)
+
     def test_menu_routes_watermark_requests(self):
         text = (PLUGIN / "skills/menu/SKILL.md").read_text()
         self.assertIn("banana-pro-watermark-remover", text)
+
+    def test_gemini_logo_and_upscale_skills_are_registered(self):
+        gemini = PLUGIN / "skills/gemini-logo-remover/SKILL.md"
+        upscale = PLUGIN / "skills/upscale/SKILL.md"
+        self.assertIn("banana-pro-gemini-logo-remover", gemini.read_text())
+        self.assertIn("https://bb.1nutnhan.com/watermark-remover/", gemini.read_text())
+        self.assertIn("banana-pro-upscale", upscale.read_text())
+        self.assertIn("https://bb.1nutnhan.com/upscale", upscale.read_text())
 
     def test_watermark_support_script_is_executable_and_documented(self):
         script = PLUGIN / "skills/watermark-remover/scripts/watermark_batch.py"

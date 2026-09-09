@@ -1,6 +1,6 @@
 {
   "name": "banana-pro-codex",
-  "version": "0.1.0+codex.20260908071606",
+  "version": "0.1.2+codex.20260909235503",
   "description": "K\u1ebft n\u1ed1i Codex v\u1edbi workflow Banana Pro \u0111\u1ec3 ki\u1ec3m tra runtime, t\u1ea1o/ch\u1ec9nh s\u1eeda \u1ea3nh, qu\u1ea3n l\u00fd media v\u00e0 b\u00e0n giao output c\u00f3 QA.",
   "author": {
     "name": "Sếp Khương"
@@ -13,6 +13,9 @@
     "image-generation",
     "image-editing",
     "watermark-removal",
+    "gemini-logo-removal",
+    "anime-watermark-upscale",
+    "upscale",
     "media-workflow",
     "codex"
   ],
@@ -28,6 +31,9 @@
       "Image generation",
       "Image editing",
       "Watermark removal",
+      "Gemini logo removal",
+      "Anime to upscale workflow",
+      "2X image upscale",
       "Media workflows",
       "QA handoff"
     ],

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xóa logo Gemini"
+  short_description: "Xóa logo bằng chỉnh sửa ảnh Gemini."
+  default_prompt: "Hãy dùng workflow Gemini để xóa logo khỏi ảnh, giữ nguyên bố cục và kiểm tra output trước khi lưu."

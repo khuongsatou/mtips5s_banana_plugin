@@ -1,4 +1,3 @@
 $ErrorActionPreference = "Stop"
-$baseUrl = if ($env:BANANA_PRO_BASE_URL) { $env:BANANA_PRO_BASE_URL } else { "https://bb.1nutnhan.com" }
+$baseUrl = & python (Join-Path $PSScriptRoot "env_config.py") --print base_url
 Invoke-RestMethod -Method Get -Uri ($baseUrl.TrimEnd("/") + "/api/health")
-

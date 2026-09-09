@@ -1,0 +1,4 @@
+interface:
+  display_name: "Upscale ảnh"
+  short_description: "Phóng to và tăng chi tiết ảnh."
+  default_prompt: "Hãy upscale ảnh này, giữ nguyên nội dung và kiểm tra kích thước output trước khi lưu."
